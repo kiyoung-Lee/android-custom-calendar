@@ -16,4 +16,23 @@
     <color name="calendar_text_selected">#ffffffff</color>
     <color name="calendar_text_unselectable">#7f778088</color>
     <color name="calendar_text_highlighted">#ff778088</color>
+
+    <color name="custom_header_text">#85B100</color>
+    <color name="custom_selected">#A8D324</color>
+    <color name="custom_background">#F0F8DB</color>
+    <color name="custom_background_today">#FF9105</color>
+    <color name="custom_background_disabled">#F0F8DB</color>
+    <color name="custom_text_selected">#FFFFFFFF</color>
+    <color name="custom_text_inactive">#7f778088</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="color_ffd1d1">#ffd1d1</color>
+    <color name="color_ff9e9f">#ff9e9f</color>
+    <color name="color_fe8282">#fe8282</color>
+    <color name="color_ff6262">#ff6262</color>
+    <color name="color_e55756">#e55756</color>
+    <color name="color_e45656">#e45656</color>
+    <color name="color_de4a60">#de4a60</color>
+    <color name="color_e70000">#e70000</color>
+    <color name="color_e80000">#e80000</color>
 </resources>

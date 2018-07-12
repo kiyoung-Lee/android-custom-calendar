@@ -4,16 +4,23 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
   <item app:tsquare_state_range_middle="true">
-    <color android:color="@color/calendar_selected_range_bg"/>
+    <color android:color="@color/color_ffd1d1"/>
   </item>
-  <item android:state_selected="true">
-    <color android:color="@color/calendar_selected_day_bg"/>
-  </item>
-  <item android:state_pressed="true">
-    <color android:color="@color/calendar_selected_day_bg"/>
-  </item>
+  <!--<item android:state_selected="true">-->
+    <!--<color android:color="@color/color_de4a60"/>-->
+  <!--</item>-->
+  <!--<item android:state_pressed="true">-->
+    <!--<color android:color="@color/color_de4a60"/>-->
+  <!--</item>-->
+
+  <item android:state_selected="true" android:drawable="@drawable/bg_circle_selected"/>
+  <item android:state_pressed="true" android:drawable="@drawable/bg_circle_selected"/>
+
+  <item app:tsquare_state_range_first="true" android:drawable="@drawable/bg_circle_selected_start"/>
+  <item app:tsquare_state_range_last="true" android:drawable="@drawable/bg_circle_selected_end"/>
+
   <item app:tsquare_state_current_month="false">
-    <color android:color="@color/calendar_inactive_month_bg"/>
+    <color android:color="@color/calendar_bg"/>
   </item>
   <item app:tsquare_state_highlighted="true">
     <color android:color="@color/calendar_highlighted_day_bg"/>
@@ -22,6 +29,6 @@
     <color android:color="@color/calendar_text_active"/>
   </item>
   <item>
-    <color android:color="@color/calendar_active_month_bg"/>
+    <color android:color="@color/calendar_bg"/>
   </item>
 </selector>
