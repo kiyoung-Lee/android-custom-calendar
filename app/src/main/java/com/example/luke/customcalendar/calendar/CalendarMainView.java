@@ -46,8 +46,8 @@ public class CalendarMainView extends ListView{
     private final List<MonthCellDescriptor> selectedCells = new ArrayList<>();
     private final List<Calendar> selectedCals = new ArrayList<>();
     private final List<Calendar> highlightedCals = new ArrayList<>();
-
     private DayViewAdapter dayViewAdapter = new DefaultDayViewAdapter();
+
     private Calendar minCal;
     private Calendar maxCal;
     private Calendar monthCounter;
@@ -64,6 +64,8 @@ public class CalendarMainView extends ListView{
 
     private final StringBuilder monthBuilder = new StringBuilder(50);
     private Formatter monthFormatter;
+
+    private DaySelectListener daySelectListener;
 
 
     public CalendarMainView(Context context, AttributeSet attrs) {
@@ -96,6 +98,10 @@ public class CalendarMainView extends ListView{
         today = Calendar.getInstance();
 
         weekdayNameFormat = new SimpleDateFormat(context.getString(R.string.day_name_format));
+    }
+
+    public void setDaySelectListener(DaySelectListener daySelectListener) {
+        this.daySelectListener = daySelectListener;
     }
 
     public Initializer init(Date minDate, Date maxDate) {
@@ -493,6 +499,9 @@ public class CalendarMainView extends ListView{
             if (selectedCells.size() == 0 || !selectedCells.get(0).equals(cell)) {
                 selectedCells.add(cell);
                 cell.setSelected(true);
+                if(daySelectListener != null && selectedCells.size() == 1){
+                    daySelectListener.selectStartDate(cell.getDate());
+                }
             }
             selectedCals.add(newlySelectedCal);
 
@@ -518,6 +527,10 @@ public class CalendarMainView extends ListView{
                             }
                         }
                     }
+                }
+
+                if(daySelectListener != null){
+                    daySelectListener.selectLastDate(end);
                 }
             }
         }
@@ -549,13 +562,6 @@ public class CalendarMainView extends ListView{
 
     private String monthKey(MonthDescriptor month) {
         return month.getYear() + "-" + month.getMonth();
-    }
-
-    public void setCustomDayView(DayViewAdapter dayViewAdapter) {
-        this.dayViewAdapter = dayViewAdapter;
-        if (null != adapter) {
-            adapter.notifyDataSetChanged();
-        }
     }
 
     private void validateAndUpdate() {

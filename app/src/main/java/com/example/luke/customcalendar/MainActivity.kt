@@ -3,6 +3,7 @@ package com.example.luke.customcalendar
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.luke.customcalendar.calendar.CalendarMainView
+import com.example.luke.customcalendar.calendar.DaySelectListener
 import com.example.luke.customcalendar.calendar.DefaultDayViewAdapter
 import java.util.*
 
@@ -31,5 +32,16 @@ class MainActivity : AppCompatActivity() {
         dates.add(today.time)
         calendar.init(Date(), nextYear.time) //
                 .withSelectedDates(dates)
+
+        calendar.setDaySelectListener(object : DaySelectListener {
+
+            override fun selectLastDate(lastDate: Date?) {
+                println(lastDate)
+            }
+
+            override fun selectStartDate(startDate: Date?) {
+                println(startDate)
+            }
+        })
     }
 }
